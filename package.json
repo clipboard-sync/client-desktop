@@ -1,0 +1,52 @@
+{
+  "name": "client-desktop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.imaxue.app",
+    "productName": "clipboard-sync",
+    "extraResources": [
+      {
+        "from": "assets/",
+        "to": "assets/"
+      }
+    ],
+    "mac": {
+      "icon": "assets/clip-icon-512.png"
+    },
+    "win": {
+      "icon": "assets/clip-icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.woa.com:clipboard-sync/client-desktop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^13.1.7",
+    "electron-builder": "^22.11.7"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "electron-prompt": "^1.6.2",
+    "electron-store": "^8.0.0",
+    "socket.io-client": "^4.1.3"
+  }
+}
