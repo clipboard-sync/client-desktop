@@ -1,14 +1,12 @@
-const fs = require('fs');
 const {ipcRenderer} = require('electron');
-const docReady = require('doc-ready');
 
 const Store = require('electron-store');
 const store = new Store();
 
 
-document.querySelector("[name='server']").value = store.get("server");
-document.querySelector("[name='channel']").value =store.get("channel");
-document.querySelector("[name='pwd']").value =store.get("pwd");
+document.querySelector("[name='server']").value = store.get("server") || "";
+document.querySelector("[name='channel']").value =store.get("channel") || "";
+document.querySelector("[name='pwd']").value =store.get("pwd") || "";
 
 let promptId = null;
 
@@ -32,10 +30,13 @@ document.querySelector("#cancel").addEventListener("click", function(e){
 document.querySelector("#ok").addEventListener("click", function(e){
 	promptSubmit()
 })
+document.querySelector("#form").addEventListener("submit", function(e){
+	e.preventDefault();
+	e.stopPropagation();
+})
 
 
 function promptRegister() {
 	promptId = document.location.hash.replace('#', '');
-
 }
-docReady(promptRegister);
+promptRegister()
