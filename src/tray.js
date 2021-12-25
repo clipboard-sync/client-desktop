@@ -23,7 +23,19 @@ class PathUtils {
 module.exports = class {
   constructor() {
     this.tray = new Tray(PathUtils.resolvePath(darkIcon));
+    this.setContextMenu();
+    this.setDisconnect();
+  }
+  async setContextMenu(){
     const contextMenu = Menu.buildFromTemplate([
+      {
+        label: '短信通知',
+        type: 'checkbox',
+        checked: !!store.get("showSMS"),
+        click: async () => {
+          store.set("showSMS", !store.get("showSMS"))
+        }
+      },
       {
         label: '偏好设置',
         type: 'normal',
@@ -48,7 +60,6 @@ module.exports = class {
       },
     ]);
     this.tray.setContextMenu(contextMenu);
-    this.setDisconnect();
   }
   setConnect() {
     this.tray.setImage(PathUtils.resolvePath(lightIcon));

@@ -2,7 +2,7 @@
 const { app } = require('electron');
 const nativeImage = require('electron').nativeImage;
 
-const { clipboard } = require('electron');
+const { clipboard,Notification } = require('electron');
 const Tray = require("./src/tray");
 const io = require("socket.io-client");
 const Store = require('electron-store');
@@ -59,6 +59,17 @@ if(server){
         clipboard.write(args.data);
       } else if (args.type === "image") {
         clipboard.writeImage(nativeImage.createFromDataURL(args.data));
+      } else if (args.type === 'sms'){ 
+        if(!!store.get("showSMS")){
+          // 显示短信通知
+          new Notification({
+            title:"远程短信",
+            body: args.data.body,
+            icon:"assets/clip-icon-dark.png",
+            timeoutType:"default",
+            silent: false,
+          }).show();
+        }
       }
     
       const currentClipboardData = getCurrentClipboard();
@@ -99,7 +110,6 @@ setInterval(()=>{
   if (last === dataJson) {
     // 剪贴板未变化，无需同步
   } else {
-    console.log("send");
     last = dataJson;
     if(pwd){
       socket.emit("data",aesEncrypt(dataJson,pwd));
