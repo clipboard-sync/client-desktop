@@ -68,6 +68,7 @@ if(server){
           new Notification({
             title: args.data.title,
             body: args.data.text,
+            icon:nativeImage.createFromDataURL(require("./src/static/phone.base64")),
             timeoutType:"default",
             silent: false,
           }).show();
