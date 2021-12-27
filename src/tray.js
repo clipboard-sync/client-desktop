@@ -29,11 +29,11 @@ module.exports = class {
   async setContextMenu(){
     const contextMenu = Menu.buildFromTemplate([
       {
-        label: '短信通知',
+        label: '手机通知',
         type: 'checkbox',
-        checked: !!store.get("showSMS"),
+        checked: !!store.get("notification"),
         click: async () => {
-          store.set("showSMS", !store.get("showSMS"))
+          store.set("notification", !store.get("notification"))
         }
       },
       {

@@ -10,6 +10,8 @@ Store.initRenderer(); // 为了在 Render 线程使用
 const store = new Store();
 const {aesEncrypt ,aesDecrypt} = require("./src/encrypt")
 
+app.setAppUserModelId('ClipboardSync')
+
 let tray = null;
 let socket = null;
 let last = "";
@@ -54,18 +56,18 @@ if(server){
       if(pwd){
         args = aesDecrypt(args, pwd);
       }
+      console.log(args)
       args = JSON.parse(args);
       if (args.type === "text") {
         clipboard.write(args.data);
       } else if (args.type === "image") {
         clipboard.writeImage(nativeImage.createFromDataURL(args.data));
-      } else if (args.type === 'sms'){ 
-        if(!!store.get("showSMS")){
-          // 显示短信通知
+      } else if (args.type === 'notification'){ 
+        if(!!store.get("notification")){
+          // 显示通知
           new Notification({
-            title:"远程短信",
-            body: args.data.body,
-            icon:"assets/clip-icon-dark.png",
+            title: args.data.title,
+            body: args.data.text,
             timeoutType:"default",
             silent: false,
           }).show();

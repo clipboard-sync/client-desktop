@@ -1,6 +1,6 @@
 {
   "name": "client-desktop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
@@ -9,7 +9,7 @@
     "build:mac": "electron-builder --mac"
   },
   "build": {
-    "appId": "com.imaxue.app",
+    "appId": "com.clipboard-sync.desktop",
     "productName": "clipboard-sync",
     "extraResources": [
       {
@@ -30,10 +30,6 @@
       "oneClick": true,
       "perMachine": true
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@git.woa.com:clipboard-sync/client-desktop.git"
   },
   "keywords": [],
   "author": "",
