@@ -1,6 +1,6 @@
 {
   "name": "client-desktop",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
@@ -40,6 +40,7 @@
     "electron-builder": "^22.11.7"
   },
   "dependencies": {
+    "clipboard-socket": "^1.0.1",
     "crypto-js": "^4.1.1",
     "electron-prompt": "^1.6.2",
     "electron-store": "^8.0.0",

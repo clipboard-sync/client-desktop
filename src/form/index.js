@@ -5,8 +5,8 @@ const ipcMain = electron.ipcMain || electron.remote.ipcMain;
 const url = require('url');
 const path = require('path');
 
-const DEFAULT_WIDTH = 470;
-const DEFAULT_HEIGHT = 300;
+const DEFAULT_WIDTH = 670;
+const DEFAULT_HEIGHT = 500;
 
 function electronPrompt(options, parentWindow) {
 	return new Promise((resolve, reject) => {
@@ -19,7 +19,7 @@ function electronPrompt(options, parentWindow) {
 				minWidth: DEFAULT_WIDTH,
 				minHeight: DEFAULT_HEIGHT,
 				resizable: false,
-				title: '设置密钥',
+				title: '偏好设置',
 				icon: null,
 				buttonLabels: null,
 				alwaysOnTop: false,

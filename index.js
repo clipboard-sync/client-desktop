@@ -9,6 +9,7 @@ const Store = require('electron-store');
 Store.initRenderer(); // 为了在 Render 线程使用
 const store = new Store();
 const {aesEncrypt ,aesDecrypt} = require("./src/encrypt")
+const Socket = require("clipboard-socket")
 
 app.setAppUserModelId('ClipboardSync')
 
@@ -27,11 +28,21 @@ const appReadyPromise = new Promise((resolve)=>{
   });
 });
 
+
+const localServer = store.get("localServer");
+const port = store.get("port");
+
 const server = store.get("server");
 const channel = store.get("channel");
 const pwd = store.get("pwd");
 
 
+// 检查是否需要开启本地服务
+if(localServer){
+  new Socket(port)
+}
+
+// 检查 Client 配置
 if(server){
   socket = io(server, {
     path: "/socket/",

@@ -38,49 +38,68 @@
             .form-item .label{
                 display:flex;
                 flex:none;
-                width:80px;
+                width:120px;
             }
             .form-item .content{
                 display:flex;
                 flex:auto;
+                justify-content:flex-start;
+                flex-direction: row;
             }
-            .content input{
+            .content .input{
                 height:30px;
                 font-size:16px;
-                width:100%;
                 outline: none;
+                flex:auto;
             }
         </style>
     </head>
     <body>
         <div id="container">
             <form id="form">
+                <h3>服务端配置(方便在局域网内使用)</h3>
+                <div class="form-item">
+                    <div class="label">本地服务</div>
+                    <div class="content">
+                        <input type="checkbox" name="localServer" checked="">
+                    </div>
+                </div>
+                
+                <div class="form-item">
+                    <div class="label">端口</div>
+                    <div class="content">
+                        <input type="number" name="port" class="input"
+                        placeholder="例如: 3000">
+                    </div>
+                </div>
+                <hr>
+                <h3>客户端配置</h3>
                 <div class="form-item">
                     <div class="label">服务器</div>
                     <div class="content">
-                        <input type="text" name="server" placeholder="server">
+                        <input type="text" class="input" name="server" placeholder="server">
                     </div>
                 </div>
                 <div class="form-item">
                     <div class="label">频道</div>
                     <div class="content">
-                        <input type="text" name="channel"
+                        <input type="text" name="channel" class="input"
                         placeholder="channel">
                     </div>
                 </div>
                 <div class="form-item">
                     <div class="label">密钥</div>
                     <div class="content">
-                        <input type="password" 
+                        <input type="password" class="input"
                         name="pwd" placeholder="">
                     </div>
                 </div>
-                
-                <div id="buttons">
-                    <button id="cancel" >取消</button>
-                    <button id="ok" >确认</button>
-                </div>
             </form>
+            
+            <div id="buttons">
+                <button id="cancel" >取消</button>
+                <button id="ok" >确认</button>
+            </div>
         </div>
     </body>
     <script src="prompt.js"></script>
