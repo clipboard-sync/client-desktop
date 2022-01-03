@@ -21,7 +21,7 @@ MAC & Windows： [Github Release](https://github.com/clipboard-sync/client-deskt
 点击托盘区图标，进入"偏好设置"
 
 1. 填写服务器地址(以下提供了一些公开的服务)
-    - http://sock.mysocket.online:3000
+    - http://socket.interface.work:3000
 2. 填写 频道（channel），相当于你的用户名，尽量不要与别人重复
 3. 填写 密钥（pwd），用于端到端加密的密码，不会向服务器发送
 
