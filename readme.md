@@ -1,6 +1,6 @@
 # ClipboardSync / 剪贴板同步
 
-桌面端 | [安卓端](https://github.com/clipboard-sync/client-rn) | [服务端](https://github.com/clipboard-sync/socket-server)  
+桌面端 | [安卓端](https://github.com/clipboard-sync/client-rn#clipboardsync--剪贴板同步) | [服务端](https://github.com/clipboard-sync/socket-server#clipboardsync--剪贴板同步)  
 
 
 **一款简单的剪贴板同步工具**
@@ -31,9 +31,7 @@ MAC & Windows： [Github Release](https://github.com/clipboard-sync/client-deskt
 
 1. 服务端是否会看到消息内容？  
     如果你设置了密钥，服务端不会看到任何东西，如果还不放心，可以私有部署。  
-2. 为什么需要使用服务端，为什么不提供局域网联机？  
-    迫于办公和家庭或者外出时，并不能时刻保证所有终端都在局域网内。如果需要局域网互联，使用 KDE-connect  
-3. 剪贴板同步的策略是什么？  
+1. 剪贴板同步的策略是什么？  
     目前仅支持同步图片和文本，客户端以 1s 1次 的频率检查剪贴板，如果你有更好的策略，欢迎在 issue 提出  
 
 
