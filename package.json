@@ -37,7 +37,7 @@
   "description": "",
   "devDependencies": {
     "electron": "^13.1.7",
-    "electron-builder": "^22.11.7"
+    "electron-builder": "^23.1.0"
   },
   "dependencies": {
     "clipboard-socket": "^1.0.1",
