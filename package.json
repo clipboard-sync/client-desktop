@@ -11,6 +11,7 @@
   "build": {
     "appId": "com.clipboard-sync.desktop",
     "productName": "clipboard-sync",
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
     "extraResources": [
       {
         "from": "assets/",
@@ -18,7 +19,17 @@
       }
     ],
     "mac": {
-      "icon": "assets/clip-icon-512.png"
+      "icon": "assets/clip-icon-512.png",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64",
+            "universal"
+          ]
+        }
+      ]
     },
     "win": {
       "icon": "assets/clip-icon.ico",
